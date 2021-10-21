@@ -29,7 +29,7 @@ class AuctionListings(models.Model):
     title = models.CharField(max_length=40)
     description = models.TextField()
     image_url = models.URLField()
-    current_bid = models.Model
+    starting_bid = models.PositiveSmallIntegerField(default=0)
     category = models.CharField(choices=CATEGORIES, max_length=5)
     date = models.DateField(default=date.today)
     datetime = models.DateTimeField(default=timezone.now)
@@ -54,7 +54,7 @@ class Bids(models.Model):
     """
     bid_price = models.PositiveSmallIntegerField()
     bidder = models.ForeignKey(User, on_delete=models.CASCADE)
-    listing = models.ManyToManyField(AuctionListings)
+    listings = models.ForeignKey(AuctionListings, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Bids"
