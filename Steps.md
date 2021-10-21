@@ -85,3 +85,9 @@ Now if the user goes to the watchlist page and the bool is 1, they should be abl
 
 This means that watchlist should relate to the user field in a way. So that we can either get the username or user id
 
+foreign key as string
+
+
+
+bids should be deleted when a listing is deleted. So bids should be tired to lisitngs. 
+
