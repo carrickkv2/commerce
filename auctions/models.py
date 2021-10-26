@@ -4,11 +4,13 @@ from datetime import date
 from django.utils import timezone
 
 CATEGORIES = (
-    ('TY', 'TOY'),
-    ('DR', 'DRESS'),
-    ('SH', 'SHIRT'),
-    ('SHO', 'SHOE'),
-    ('BO', 'BOOKS'),
+    ('Cl', 'Clothes'),
+    ('Sh', 'Shoe'),
+    ('Fu', 'Furniture'),
+    ('El', 'Electronics'),
+    ('Mi', 'Miscellaneous'),
+    ('Ki', 'Kitchen'),
+    ('No', 'None'),
 )
 
 
@@ -26,6 +28,7 @@ class AuctionListings(models.Model):
     """
     Model for all the listings listed on the site.
     """
+    seller = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=40)
     description = models.TextField()
     image_url = models.URLField()
@@ -39,7 +42,7 @@ class AuctionListings(models.Model):
     timestamp_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Title:{self.title}, Date Added:{self.date_added}, Category:{self.category}"
+        return f"ID:{self.id}, Title:{self.title}, Seller:{self.seller}"
 
     class Meta:
         """
@@ -52,9 +55,13 @@ class Bids(models.Model):
     """
     Model to allow one to place bids on listings.
     """
-    bid_price = models.PositiveSmallIntegerField()
-    bidder = models.ForeignKey(User, on_delete=models.CASCADE)
+
     listings = models.ForeignKey(AuctionListings, on_delete=models.CASCADE)
+    bidder = models.ForeignKey(User, on_delete=models.CASCADE)
+    bid_price = models.PositiveSmallIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.bidder} bid:{self.bid_price}$ on {self.listings}"
 
     class Meta:
         verbose_name_plural = "Bids"
@@ -71,6 +78,9 @@ class Comments(models.Model):
     class Meta:
         verbose_name_plural = "Comments"
 
+    def __str__(self):
+        return f"Comment #{self.id} made on auction {self.commented_listing}$ by {self.commenter}"
+
 
 class WatchList(models.Model):
     """
@@ -79,3 +89,6 @@ class WatchList(models.Model):
     on_watch_list = models.BooleanField()
     lister = models.ForeignKey(User, on_delete=models.CASCADE)
     watch_listed_listing = models.ForeignKey(AuctionListings, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Item #{self.id} is on {self.lister}'s watchlist"
