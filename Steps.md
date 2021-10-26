@@ -1,3 +1,11 @@
+https://leo-commerce.herokuapp.com/
+
+https://github.com/LeoZorzoli/Commerce/blob/master/auctions/models.py
+
+https://shopwice.com/product/converse-all-star-navy-blue/
+
+
+
 For this Project the site should be 
 
 1. Responsive.
@@ -89,5 +97,34 @@ foreign key as string
 
 
 
-bids should be deleted when a listing is deleted. So bids should be tired to lisitngs. 
+bids should be deleted when a listing is deleted. So bids should be tired to listings. 
 
+Create listing should be a form that allows one to enter the title, description, and what the starting bid should be.  a URL for an image for the listing and a category 
+
+because the seller should be signed in before the form can be created, if the user is not signed it should give an error
+
+
+
+if user not signed in, render, you'll need to be signed if before you can create a listing. Please sign in and try again. Just like Tonaton.
+
+It's a JS modal
+
+Else, allow the user to create the listing so that we can. 
+
+For starting bid and any bid, price cannot be larger than any small positive int
+
+
+
+we must first check if a user is signed in.
+
+
+
+When we create a listing how do we save it to the DB, how do we show the DB choices in the listing? 
+
+
+
+if that part is clicked, then go to the else clause and show the modal. Else the script should show the modal
+
+js to close
+
+js to trigger
