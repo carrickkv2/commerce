@@ -1,3 +1,18 @@
+ddavid
+
+skdd
+
+ddka
+
+dkob
+
+
+
+Box with display flex
+inside box, we have two cards , and on the cards both would have display flex with a flex of 1 and direction of coloum
+the left box have an outline of line grey
+the link 
+
 https://leo-commerce.herokuapp.com/
 
 https://github.com/LeoZorzoli/Commerce/blob/master/auctions/models.py
@@ -128,3 +143,11 @@ if that part is clicked, then go to the else clause and show the modal. Else the
 js to close
 
 js to trigger
+
+
+
+For creating a listing, if it is a post request method, then get the title, the description, image url, starting bid and cateory and save them to the Db. The question is how to get the data. Make sure that the form is valid before you get the data
+
+get the user from the person submitting 
+
+form.[user id] == 
