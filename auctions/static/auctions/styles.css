@@ -2,4 +2,21 @@ body {
     padding: 10px;
 }
 
+body { min-height: 100vh; }
 
+#flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-width {
+    width: 70%;
+}
+
+.button {
+    margin-right: 15px;
+    display: flex;
+    justify-content: right;
+}
