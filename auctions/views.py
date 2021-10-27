@@ -70,6 +70,14 @@ def register(request):
 
 
 def create(request):
+    if request.method == "POST":
+        current_user = request.user
+
+        form = NewListingForm(request.POST)
+        author = form.save(commit=False)
+        author.seller = current_user
+        author.save()
+
     return render(request, "auctions/create_listings.html", {
         "form": NewListingForm()
     })
