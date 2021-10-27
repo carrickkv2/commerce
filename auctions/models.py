@@ -42,7 +42,7 @@ class AuctionListings(models.Model):
     timestamp_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"ID:{self.id}, Title:{self.title}, Seller:{self.seller}"
+        return f"ID: {self.id}, Title: {self.title}, Seller: {self.seller}"
 
     class Meta:
         """
