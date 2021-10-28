@@ -6,7 +6,7 @@ ddka
 
 dkob
 
-
+tithe 20
 
 Box with display flex
 inside box, we have two cards , and on the cards both would have display flex with a flex of 1 and direction of coloum
