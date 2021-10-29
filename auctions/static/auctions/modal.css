@@ -1190,3 +1190,19 @@ button,[type="button"] {
     }
 }
 
+#flex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-width {
+    width: 70%;
+}
+
+.button {
+    margin-right: 15px;
+    display: flex;
+    justify-content: right;
+}
