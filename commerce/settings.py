@@ -26,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
-    'cd4b-154-160-14-221.ngrok.io',
+    '67cc-154-160-14-8.ngrok.io',
     '127.0.0.1',
 ]
 
@@ -118,6 +118,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static')
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 AUTH_USER_MODEL = 'auctions.User'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
