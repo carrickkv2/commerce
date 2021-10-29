@@ -31,7 +31,7 @@ MANIFEST
 *.manifest
 *.spec
 *.iml
-.idea
+*.idea
 
 # Installer logs
 pip-log.txt
@@ -116,3 +116,5 @@ dmypy.json
 .pyre/
 .idea/vcs.xml
 .idea/vcs.xml
+.idea/.gitignore
+.idea/commerce.iml
