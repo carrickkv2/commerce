@@ -14,10 +14,18 @@ class NewListingForm(ModelForm):
 
 
 def index(request):
-    return render(request, "auctions/index.html")
+    """
+    Returns the main page of the site.
+    """
+    return render(request, "auctions/index.html", {
+        'Listings': AuctionListings.objects.all()
+    })
 
 
 def login_view(request):
+    """
+    Allows a user to login. 
+    """
     if request.method == "POST":
 
         # Attempt to sign user in
@@ -43,6 +51,9 @@ def logout_view(request):
 
 
 def register(request):
+    """
+    Allows a person to register for the site. 
+    """
     if request.method == "POST":
         username = request.POST["username"]
         email = request.POST["email"]
@@ -70,6 +81,9 @@ def register(request):
 
 
 def create(request):
+    """
+    Allows one to create an auction listing. 
+    """
     if request.method == "POST":
         current_user = request.user
 
@@ -78,6 +92,10 @@ def create(request):
         author.seller = current_user
         author.save()
 
+        return render(request, "auctions/index.html")
+
     return render(request, "auctions/create_listings.html", {
         "form": NewListingForm()
     })
+
+

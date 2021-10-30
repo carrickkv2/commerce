@@ -21,40 +21,42 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-    <div class="container" id="flex">
+    <div class="mainbody__create">
 
-       {% if user.is_authenticated %}
-           <form action="{% url 'create_listing' %}" method="post" class="form-width">
-               {% csrf_token %}
+      <div class="container" id="flex">
 
-               <div class="form-group col-md-12 mb-0">
-                   {{ form.title|as_crispy_field }}
-               </div>
+        {% if user.is_authenticated %}
+            <form action="{% url 'create_listing' %}" method="post" class="form-width">
+                {% csrf_token %}
 
-               <div class="form-group col-md-12 mb-0">
-                   {{ form.description|as_crispy_field }}
-               </div>
+                <div class="form-group col-md-12 mb-0">
+                    {{ form.title|as_crispy_field }}
+                </div>
 
-               <div class="form-group col-md-8 mb-0">
-                   {{ form.image_url|as_crispy_field }}
-               </div>
+                <div class="form-group col-md-12 mb-0">
+                    {{ form.description|as_crispy_field }}
+                </div>
 
-               <div class="form-group col-md-2 mb-0">
-                   {{ form.starting_bid|as_crispy_field }}
-               </div>
+                <div class="form-group col-md-8 mb-0">
+                    {{ form.image_url|as_crispy_field }}
+                </div>
 
-               <div class="form-group col-md-2 mb-0">
-                   {{ form.category|as_crispy_field }}
-               </div>
+                <div class="form-group col-md-2 mb-0">
+                    {{ form.starting_bid|as_crispy_field }}
+                </div>
 
-               <div class="button">
-                   <button type="submit" class="btn btn-primary"> Submit </button>
-               </div>
+                <div class="form-group col-md-2 mb-0">
+                    {{ form.category|as_crispy_field }}
+                </div>
+
+                <div class="button__form">
+                    <button type="submit" class="btn btn-primary"> Submit </button>
+                </div>
 
 
-               </form>
-
-   </div>
+                </form>
+      </div>
+    </div>
 
 
    {% else %}

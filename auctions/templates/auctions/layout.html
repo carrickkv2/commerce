@@ -5,7 +5,15 @@
 
     <head>
 
-        <title>{% block title %}Auctions{% endblock %}</title>
+        <title>
+
+            {% block title %}  
+            
+                Expressions
+
+            {% endblock %}
+
+        </title>
 
         <meta charset="UTF-8">
 
@@ -26,66 +34,46 @@
 
     <body>
 
-        <!--===== HEADER =====-->
-        <header class="l-header" id="header">
+        {% block navbar %}
 
-            <nav class="nav bd-grid">
+            <!--===== HEADER =====-->
+            <header class="l-header" id="header">
 
-                <div class="nav__toggle" id="nav-toggle">
+                <nav class="nav bd-grid">
 
-                    <i class='bx bxs-grid'></i>
+                    <div class="nav__toggle" id="nav-toggle">
 
-                </div>
+                        <i class='bx bxs-grid'></i>
 
-                <a href="#" class="nav__logo"> Roby </a>
+                    </div>
 
-                <div class="nav__menu" id="nav-menu">
+                    <a href="{% url 'index' %}" class="nav__logo"> Expressions </a>
 
-                    <ul class="nav_list">
+                    <div class="nav__menu" id="nav-menu">
 
-                        <li class="nav__item">
-                            
-                            <a href="" class="nav__link"> Home </a>
-                            
-                        </li>
+                        <ul class="nav_list">
 
-                        <li class="nav__item">
-                            
-                            <a href="" class="nav__link"> Featured </a>
+                            <li class="nav__item">
+                                
+                                <a href="{% url 'index' %}" class="nav__link active"> Home </a>
+                                
+                            </li>
 
-                        </li>
+                        </ul>
 
-                        <li class="nav__item">
-                            
-                            <a href="" class="nav__link"> Women </a>
+                    </div>
 
-                        </li>
-                        
-                        <li class="nav__item">
-                            
-                            <a href="" class="nav__link"> New </a>
+                    <div class="nav__shop">
 
-                        </li>
+                        <i class='bx bx-user-pin'></i>
 
-                        <li class="nav__item">
-                            
-                            <a href="" class="nav__link"> Shop </a>
+                    </div>
 
-                        </li>
+                </nav>
 
-                    </ul>
+            </header>
 
-                </div>
-
-                <div class="nav__shop">
-
-                    <i class='bx bxs-shopping-bag' ></i>
-
-                </div>
-
-            </nav>
-
-        </header>
+        {% endblock %}
 
 
         {% block body %}

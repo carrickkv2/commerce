@@ -1201,7 +1201,7 @@ button,[type="button"] {
     width: 70%;
 }
 
-.button {
+.button__form {
     margin-right: 15px;
     display: flex;
     justify-content: right;

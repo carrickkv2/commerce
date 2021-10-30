@@ -1,0 +1,165 @@
+<main class="l-main">
+    <!--===== HOME =====-->
+    <section class="home" id="home">
+
+        <div class="home__container bd-grid">
+
+          <div class="home__sneaker">
+
+              <div class="home__shape">
+
+                <img src="" alt="" class="home_img">
+
+              </div>
+
+          </div>  
+
+          <div class="home__data">
+
+            <span class="home_new">
+
+                New in
+
+            </span>
+
+            <h1 class="home__title">
+
+                YEEZY BOOST <br> SPLY - 350
+
+            </h1>
+
+            <p class="home_description">
+
+                Explore the new collection of sneakers to bid on now
+
+            </p>
+
+            <a href="#" class="button">
+
+                Bid now
+
+            </a>
+
+          </div>
+
+        </div>
+
+    </section>
+
+    <!--===== FEATURED =====-->
+    
+
+    <!--===== COLLECTION =====-->
+    
+
+    <!--===== WOMEN SNEAKERS =====-->
+    
+
+    <!--===== OFFER =====-->
+    
+
+    <!--===== NEW COLLECTION =====-->
+    
+
+    <!--===== NEWSLETTER =====-->
+    
+</main>
+
+
+<h1>Listings:</h1>
+<ul>
+    {% for listing in Listings %}
+        Title: {{ listing.title }}
+        <img src="{{ listing.image_url }}" alt="">
+        Current bid: {{ listing.starting_bid }}
+        Category: {{ listing.category }}
+    {% endfor %}
+</ul>
+
+
+
+<article class="sneaker">
+
+    <div class="sneaker__sale"> 
+        
+        Sale 
+
+    </div>
+
+    <img src="" alt="" class="sneaker__img">
+
+    <span class="sneaker__name">
+
+        Nike Free N
+
+    </span>
+
+    <span class="sneaker_preci">
+
+        $149.99 <!-- Current bid price should be here -->
+
+    </span>
+
+    <a href="" class="button-light">
+
+        Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+
+    </a>
+
+</article>
+
+
+<article class="sneaker">
+
+    <div class="sneaker__sale"> 
+        
+        Sale 
+
+    </div>
+
+    <img src="" alt="" class="sneaker__img">
+
+    <span class="sneaker__name">
+
+        Nike Jordan
+
+    </span>
+
+    <span class="sneaker_preci">
+
+        $149.99 <!-- Current bid price should be here -->
+
+    </span>
+
+    <a href="" class="button-light">
+
+        Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+
+    </a>
+
+</article>
+
+
+<li class="nav__item">
+                            
+    <a href="#featured" class="nav__link"> Featured </a>
+
+</li>
+
+<li class="nav__item">
+    
+    <a href="#women" class="nav__link"> Women </a>
+
+</li>
+
+<li class="nav__item">
+    
+    <a href="#new" class="nav__link"> New </a>
+
+</li>
+
+<li class="nav__item">
+    
+    <a href="#" class="nav__link"> Shop </a>
+
+</li>

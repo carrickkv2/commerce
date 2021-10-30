@@ -4,19 +4,20 @@ from datetime import date
 from django.utils import timezone
 
 CATEGORIES = (
-    ('Cl', 'Clothes'),
-    ('Sh', 'Shoe'),
-    ('Fu', 'Furniture'),
-    ('El', 'Electronics'),
-    ('Mi', 'Miscellaneous'),
-    ('Ki', 'Kitchen'),
-    ('No', 'None'),
+    ('Clothes', 'Clothes'),
+    ('Shoe', 'Shoe'),
+    ('Furniture', 'Furniture'),
+    ('Electronics', 'Electronics'),
+    ('Miscellaneous', 'Miscellaneous'),
+    ('Kitchen', 'Kitchen'),
+    ('None', 'None'),
 )
 
 
 class User(AbstractUser):
     """
     Allows one to get more data about a user than Django allows.
+    In this instance it's not used. 
     """
     pass
 
@@ -33,7 +34,7 @@ class AuctionListings(models.Model):
     description = models.TextField()
     image_url = models.URLField()
     starting_bid = models.PositiveSmallIntegerField(default=0)
-    category = models.CharField(choices=CATEGORIES, max_length=5)
+    category = models.CharField(choices=CATEGORIES, max_length=20)
     date = models.DateField(default=date.today)
     datetime = models.DateTimeField(default=timezone.now)
     date_last_updated = models.DateField(auto_now=True)
@@ -42,7 +43,7 @@ class AuctionListings(models.Model):
     timestamp_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"ID: {self.id}, Title: {self.title}, Seller: {self.seller}"
+        return f"ID: {self.id}, Title: {self.title}, Seller: {self.seller} Category: {self.category}"
 
     class Meta:
         """
