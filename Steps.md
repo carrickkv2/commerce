@@ -195,3 +195,5 @@ The nav bar should only hold things that are relevant to the page
 Use icon with drop down to show the current user, login, register
 
 Shop would be active listings
+
+"GET /favicon.ico HTTP/1.1" 404 2955
