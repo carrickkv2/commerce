@@ -1,7 +1,428 @@
 {% extends "auctions/layout.html" %}
 
-{% block body %}
-    <h2>Active Listings</h2>
+{% block navbar %}
 
-    TODO
+    <header class="l-header" id="header">
+
+        <nav class="nav bd-grid">
+
+            <div class="nav__toggle" id="nav-toggle">
+
+                <i class='bx bxs-grid'></i>
+
+            </div>
+
+            <a href="{% url 'index' %}" class="nav__logo"> Expressions </a>
+
+            <div class="nav__menu" id="nav-menu">
+
+                <ul class="nav_list">
+
+                    <li class="nav__item">
+                        
+                        <a href="#home" class="nav__link"> Home </a>
+                        
+                    </li>
+
+                    <li class="nav__item">
+                        
+                        <a href="#featured" class="nav__link"> Featured </a>
+
+                    </li>
+
+                    <li class="nav__item">
+                        
+                        <a href="#women" class="nav__link"> Women </a>
+
+                    </li>
+                    
+                    <li class="nav__item">
+                        
+                        <a href="#new" class="nav__link"> New </a>
+
+                    </li>
+
+                    <!-- <li class="nav__item">
+                        
+                        <a href="#new" class="nav__link"> Active Listings </a>
+
+                    </li> -->
+
+                    <li class="nav__item">
+                        
+                        <a href="{% url 'create_listing' %}" class="nav__link"> Create listing </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="nav__shop">
+
+                <i class='bx bx-user-pin'></i>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="mainbody_index">
+
+        <!-- <h2>Active Listings</h2> -->
+
+        {% for listing in Listings %}
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home" id="home">
+        
+                <div class="home__container bd-grid">
+        
+                <div class="home__sneaker">
+        
+                    <div class="home__shape">
+        
+                        <img src="{{ listing.image_url }}" alt="" class="home__img">
+        
+                    </div>
+        
+                </div>  
+        
+                <div class="home__data">
+        
+                    <span class="home__new">
+        
+                        Newly arrived
+        
+                    </span>
+        
+                    <h1 class="home__title">
+        
+                        {{ listing.title }}
+        
+                    </h1>
+        
+                    <p class="home__description">
+        
+                        Explore the new collection of sneakers starting from 75$
+        
+                    </p>
+        
+                    <a href="#" class="button">
+        
+                        Bid now
+        
+                    </a>
+        
+                </div>
+        
+                </div>
+        
+            </section>
+        
+            <!--===== FEATURED =====-->
+            <section class="featured section" id="featured">
+
+                <h2 class="section-title">
+                    FEATURED
+                </h2>
+
+                <div class="featured__container bd-grid">
+
+                    <article class="sneaker">
+
+                        <div class="sneaker__sale"> 
+                            
+                            Sale 
+
+                        </div>
+
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured1.png?raw=true" alt="" class="sneaker__img">
+
+                        <span class="sneaker__name">
+
+                            Nike Free RN
+
+                        </span>
+
+                        <span class="sneaker__preci">
+
+                            $149.99 <!-- Current bid price should be here -->
+
+                        </span>
+
+                        <a href="" class="button-light">
+
+                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="sneaker">
+
+                        <div class="sneaker__sale"> 
+                            
+                            Sale 
+
+                        </div>
+
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured2.png?raw=true" alt="" class="sneaker__img">
+
+                        <span class="sneaker__name">
+
+                            Nike Free N
+
+                        </span>
+
+                        <span class="sneaker__preci">
+
+                            $149.99 <!-- Current bid price should be here -->
+
+                        </span>
+
+                        <a href="" class="button-light">
+
+                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="sneaker">
+
+                        <div class="sneaker__sale"> 
+                            
+                            Sale 
+
+                        </div>
+
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured3.png?raw=true" alt="" class="sneaker__img">
+
+                        <span class="sneaker__name">
+
+                            Nike Jordan
+
+                        </span>
+
+                        <span class="sneaker__preci">
+
+                            $149.99 <!-- Current bid price should be here -->
+
+                        </span>
+
+                        <a href="" class="button-light">
+
+                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+        
+            <!--===== COLLECTION =====-->
+            <section class="collection section">
+
+                <div class="collection__container bd-grid">
+
+                    <div class="collection__card">
+
+                        <div class="collection__data">
+
+                            <h3 class="collection__name">
+
+                                Nike
+
+                            </h3>
+
+                            <p class="collection__description">
+
+                                New collection 2021 
+                                <!-- pass DJango date here -->
+
+                            </p>
+
+                            <a href="#" class="button-light">
+
+                                Buy now
+                                <i class='bx bxs-right-arrow-alt button-icon'></i>
+
+                            </a>
+
+                            <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/collection1.png?raw=true" alt="" class="collection__img">
+
+                        </div>
+
+                    </div>
+
+                    <div class="collection__card">
+
+                        <div class="collection__data">
+
+                            <h3 class="collection__name">
+
+                                Adidas
+
+                            </h3>
+
+                            <p class="collection__description">
+
+                                New collection 2021 
+                                <!-- pass DJango date here -->
+
+                            </p>
+
+                            <a href="#" class="button-light">
+
+                                Buy now
+                                <i class='bx bxs-right-arrow-alt button-icon'></i>
+
+                            </a>
+
+                            <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/collection2.png?raw=true" alt="" class="collection__img">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+        
+            <!--===== WOMEN SNEAKERS =====-->
+            <section class="women section" id="women">
+
+                <h2 class="section-title">
+                    
+                    WOMEN SNEAKERS
+
+                </h2>
+
+                <div class="women__container bd-grid">
+
+                    <article class="sneaker">
+
+                        <div class="sneaker__sale"> 
+                            
+                            Sale 
+
+                        </div>
+
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women1.png?raw=true" alt="" class="sneaker__img">
+
+                        <span class="sneaker__name">
+
+                            Nike Free TR
+                        </span>
+
+                        <span class="sneaker__preci">
+
+                            $129.99 <!-- Current bid price should be here -->
+
+                        </span>
+
+                        <a href="" class="button-light">
+
+                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+
+                        </a>
+
+                    </article>
+
+                    <article class="sneaker">
+
+                        <div class="sneaker__sale"> 
+                            
+                            Sale 
+
+                        </div>
+
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women2.png?raw=true" alt="" class="sneaker__img">
+
+                        <span class="sneaker__name">
+
+                            Nike Jordan
+
+                        </span>
+
+                        <span class="sneaker__preci">
+
+                            $149.99 <!-- Current bid price should be here -->
+
+                        </span>
+
+                        <a href="" class="button-light">
+
+                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+
+                        </a>
+
+                    </article>
+
+                    <article class="sneaker">
+
+                        <div class="sneaker__sale"> 
+                            
+                            Sale 
+
+                        </div>
+
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women3.png?raw=true" alt="" class="sneaker__img">
+
+                        <span class="sneaker__name">
+
+                            Nike Jordan
+
+                        </span>
+
+                        <span class="sneaker__preci">
+
+                            $149.99 <!-- Current bid price should be here -->
+
+                        </span>
+
+                        <a href="" class="button-light">
+
+                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+
+                        </a>
+
+                    </article>
+
+
+
+                </div>
+
+            </section>
+        
+            <!--===== OFFER =====-->
+            
+        
+            <!--===== NEW COLLECTION =====-->
+            
+        
+            <!--===== NEWSLETTER =====-->
+            
+        </main>
+        
+
+
+        {% endfor %}
+    
+
+    </div>
+
+
 {% endblock %}
