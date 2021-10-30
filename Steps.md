@@ -151,3 +151,47 @@ For creating a listing, if it is a post request method, then get the title, the 
 get the user from the person submitting 
 
 form.[user id] == 
+
+
+
+on modal close go back home
+
+
+
+do it like flight. Loop through all the lisitngs. But then for the first context, the Yeezy one, add only that one. As a seperate context. 
+
+
+
+Check to see if you can do the Yeezy one. If you can, then that is all. 
+
+Becuase it's CSS, you might have to access each element seperatly. Look at how the flight page was done. 
+
+
+
+Insert the flight id in the YEEzy div
+
+
+
+it should not show a particular flight, it should show all flights
+
+
+
+Dave 3
+
+Random user names 3 each
+
+if bid in bid table, then current bid = bid from bid table else it's bid from auction table
+
+Use the listing id
+
+Section
+
+JS and links
+
+
+
+The nav bar should only hold things that are relevant to the page
+
+Use icon with drop down to show the current user, login, register
+
+Shop would be active listings
