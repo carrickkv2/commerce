@@ -58,11 +58,34 @@
 
             </div>
 
-            <div class="nav__shop">
+            {% if user.is_authenticated %}
 
-                <i class='bx bx-user-pin'></i>
+                <div class="nav__shop">
 
-            </div>
+                    <div class="dropdown" data-dropdown>
+                        <img src="https://ik.imagekit.io/ifyjl9v1srv/Black-2_6AH1DV80Tk?updatedAt=1635747896570" alt="profile-img" class="dropbtn user-img link" data-dropdown-button>
+                        <div class="dropdown-menu dropdown-links">
+                          <a href="#" class="link"> Logout </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <div class="nav__shop">
+
+                    <div class="dropdown" data-dropdown>
+                        <i class='bx bx-user-pin dropbtn link' data-dropdown-button></i>
+                        <div class="dropdown-menu dropdown-links">
+                          <a href="#" class="link"> Login </a>
+                          <a href="#" class="link"> Register </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            {% endif %}
 
         </nav>
 
