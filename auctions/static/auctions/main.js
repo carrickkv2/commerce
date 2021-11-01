@@ -11,7 +11,6 @@ const showMenu = (toggleId, navId) => {
 }
 
 showMenu('nav-toggle','nav-menu')
-console.log('hell0')
 
 /*===== REMOVE MENU =====*/
 const navLink = document.querySelectorAll('.nav__link'),
@@ -54,3 +53,40 @@ window.onscroll = () => {
     if (this.scrollY >= 200) nav.classList.add('scroll-header'); 
     else nav.classList.remove('scroll-header')
 }
+
+
+
+// function myFunction() {
+//     document.getElementById("myDropdown").classList.toggle("show");
+//   }
+  
+//   // Close the dropdown if the user clicks outside of it
+//   window.onclick = function(event) {
+//     if (!event.target.matches('.dropbtn')) {
+//       var dropdowns = document.getElementsByClassName("dropdown-content");
+//       var i;
+//       for (i = 0; i < dropdowns.length; i++) {
+//         var openDropdown = dropdowns[i];
+//         if (openDropdown.classList.contains('show')) {
+//           openDropdown.classList.remove('show');
+//         }
+//       }
+//     }
+//   }
+
+document.addEventListener("click", e => {
+    const isDropdownButton = e.target.matches("[data-dropdown-button]")
+    if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return
+    
+    let currentDropdown
+    if (isDropdownButton) {
+        currentDropdown = e. target.closest('[data-dropdown]')
+        currentDropdown.classList.toggle('active')
+    }
+    
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+    if (dropdown === currentDropdown) return
+    dropdown.classlist.remove('active')
+    })
+})
+  
