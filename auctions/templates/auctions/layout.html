@@ -26,6 +26,8 @@
 
         <link href="{% static 'auctions/normalize.css' %}" rel="stylesheet">
 
+        <link href="{% static 'auctions/profile.css' %}" rel="stylesheet">
+
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
         {% block extrahead %}{% endblock %}
@@ -63,13 +65,24 @@
 
                     </div>
 
+                    {% if user.is_authenticated %}
+
+                        <div class="nav__shop">
+
+                            <img src="
+                            https://ik.imagekit.io/ifyjl9v1srv/Black-2_6AH1DV80Tk?updatedAt=1635747896570" alt="profile-img" class="user-img">
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="nav__shop">
+
+                            <i class='bx bx-user-pin'></i>
+
+                        </div>
                     
-
-                    <div class="nav__shop">
-
-                        <i class='bx bx-user-pin'></i>
-
-                    </div>
+                    {% endif %}
 
                 </nav>
 

@@ -199,3 +199,7 @@ Shop would be active listings
 "GET /favicon.ico HTTP/1.1" 404 2955
 
 If user logged in, show profile picture
+
+
+
+<i class='bx bx-user-pin'></i>
