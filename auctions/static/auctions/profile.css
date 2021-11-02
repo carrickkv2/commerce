@@ -1,7 +1,3 @@
-.nav__shop:before {
-    content: none;
- }
-
 .user-img {
     width: 25px;
     border-radius: 50%;
@@ -18,8 +14,8 @@
     padding: 0;
 }
     
-.dropdown.active > .link, .link:hover {
-    color: black;
+.link:hover {
+    color: #8A8A8A;
 }  
       
 .dropdown {
@@ -29,7 +25,7 @@
 .dropdown-menu {
     position: absolute;
     left: -70px;
-    top: calc(100%);
+    top: calc(90%);
     padding: .75rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0,0,.1);
     opacity: 0;
@@ -39,14 +35,14 @@
     min-width: 70px;
 }
     
-.dropdown.active > .link + .dropdown-menu {
+.dropdown > .link + .dropdown-menu {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
 }
     
-.dropdown-links {
+.dropdown:hover .dropdown-menu {
     display: flex;
     flex-direction: column;
     gap: .25rem;
-}
+  }
