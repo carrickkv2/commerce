@@ -202,4 +202,4 @@ If user logged in, show profile picture
 
 
 
-<i class='bx bx-user-pin'></i>
+change the js dropdown to css
