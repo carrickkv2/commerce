@@ -4,75 +4,75 @@
 
         <div class="home__container bd-grid">
 
-          <div class="home__sneaker">
+            <div class="home__sneaker">
 
-              <div class="home__shape">
+                <div class="home__shape">
 
-                <img src="" alt="" class="home_img">
+                    <img src="" alt="" class="home_img">
 
-              </div>
+                </div>
 
-          </div>  
+            </div>
 
-          <div class="home__data">
+            <div class="home__data">
 
-            <span class="home_new">
+                <span class="home_new">
 
-                New in
+                    New in
 
-            </span>
+                </span>
 
-            <h1 class="home__title">
+                <h1 class="home__title">
 
-                YEEZY BOOST <br> SPLY - 350
+                    YEEZY BOOST <br> SPLY - 350
 
-            </h1>
+                </h1>
 
-            <p class="home_description">
+                <p class="home_description">
 
-                Explore the new collection of sneakers to bid on now
+                    Explore the new collection of sneakers to bid on now
 
-            </p>
+                </p>
 
-            <a href="#" class="button">
+                <a href="#" class="button">
 
-                Bid now
+                    Bid now
 
-            </a>
+                </a>
 
-          </div>
+            </div>
 
         </div>
 
     </section>
 
     <!--===== FEATURED =====-->
-    
+
 
     <!--===== COLLECTION =====-->
-    
+
 
     <!--===== WOMEN SNEAKERS =====-->
-    
+
 
     <!--===== OFFER =====-->
-    
+
 
     <!--===== NEW COLLECTION =====-->
-    
+
 
     <!--===== NEWSLETTER =====-->
-    
+
 </main>
 
 
 <h1>Listings:</h1>
 <ul>
     {% for listing in Listings %}
-        Title: {{ listing.title }}
-        <img src="{{ listing.image_url }}" alt="">
-        Current bid: {{ listing.starting_bid }}
-        Category: {{ listing.category }}
+    Title: {{ listing.title }}
+    <img src="{{ listing.image_url }}" alt="">
+    Current bid: {{ listing.starting_bid }}
+    Category: {{ listing.category }}
     {% endfor %}
 </ul>
 
@@ -80,9 +80,9 @@
 
 <article class="sneaker">
 
-    <div class="sneaker__sale"> 
-        
-        Sale 
+    <div class="sneaker__sale">
+
+        Sale
 
     </div>
 
@@ -96,7 +96,8 @@
 
     <span class="sneaker_preci">
 
-        $149.99 <!-- Current bid price should be here -->
+        $149.99
+        <!-- Current bid price should be here -->
 
     </span>
 
@@ -111,9 +112,9 @@
 
 <article class="sneaker">
 
-    <div class="sneaker__sale"> 
-        
-        Sale 
+    <div class="sneaker__sale">
+
+        Sale
 
     </div>
 
@@ -127,7 +128,8 @@
 
     <span class="sneaker_preci">
 
-        $149.99 <!-- Current bid price should be here -->
+        $149.99
+        <!-- Current bid price should be here -->
 
     </span>
 
@@ -141,25 +143,69 @@
 
 
 <li class="nav__item">
-                            
+
     <a href="#featured" class="nav__link"> Featured </a>
 
 </li>
 
 <li class="nav__item">
-    
+
     <a href="#women" class="nav__link"> Women </a>
 
 </li>
 
 <li class="nav__item">
-    
+
     <a href="#new" class="nav__link"> New </a>
 
 </li>
 
 <li class="nav__item">
-    
+
     <a href="#" class="nav__link"> Shop </a>
 
 </li>
+
+
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="password" name="password" placeholder="Password">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Login">
+</form>
+
+Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+
+
+<div class="mainbody__create">
+
+    <h2>Register</h2>
+
+    {% if message %}
+    <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+
+    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+
+</div>
