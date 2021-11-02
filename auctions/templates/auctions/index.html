@@ -2,558 +2,586 @@
 
 {% block navbar %}
 
-    <header class="l-header" id="header">
+<header class="l-header" id="header">
 
-        <nav class="nav bd-grid">
+    <nav class="nav bd-grid">
 
-            <div class="nav__toggle" id="nav-toggle">
+        <div class="nav__toggle" id="nav-toggle">
 
-                <i class='bx bxs-grid'></i>
+            <i class='bx bxs-grid'></i>
 
-            </div>
+        </div>
 
-            <a href="{% url 'index' %}" class="nav__logo"> Expressions </a>
+        <a href="{% url 'index' %}" class="nav__logo"> Akira </a>
 
-            <div class="nav__menu" id="nav-menu">
+        <div class="nav__menu" id="nav-menu">
 
-                <ul class="nav__list">
+            <ul class="nav__list">
 
-                    <li class="nav__item">
-                        
-                        <a href="#home" class="nav__link active"> Home </a>
-                        
-                    </li>
+                <li class="nav__item">
 
-                    <li class="nav__item">
-                        
-                        <a href="#featured" class="nav__link"> Featured </a>
+                    <a href="#home" class="nav__link active"> Home </a>
 
-                    </li>
+                </li>
 
-                    <li class="nav__item">
-                        
-                        <a href="#women" class="nav__link"> Women </a>
+                <li class="nav__item">
 
-                    </li>
-                    
-                    <li class="nav__item">
-                        
-                        <a href="#new" class="nav__link"> New </a>
+                    <a href="#featured" class="nav__link"> Featured </a>
 
-                    </li>
+                </li>
 
-                    <!-- <li class="nav__item">
+                <li class="nav__item">
+
+                    <a href="#women" class="nav__link"> Women </a>
+
+                </li>
+
+                <li class="nav__item">
+
+                    <a href="#new" class="nav__link"> New </a>
+
+                </li>
+
+                <!-- <li class="nav__item">
                         
                         <a href="#new" class="nav__link"> Active Listings </a>
 
                     </li> -->
 
-                    <li class="nav__item">
-                        
-                        <a href="{% url 'create_listing' %}" class="nav__link"> Create listing </a>
+                <li class="nav__item">
 
-                    </li>
+                    <a href="{% url 'create_listing' %}" class="nav__link"> Create listing </a>
 
-                </ul>
+                </li>
 
+            </ul>
+
+        </div>
+
+        {% if user.is_authenticated %}
+
+        <div class="nav__shop">
+
+            <div class="dropdown" data-dropdown>
+                <img src="https://ik.imagekit.io/ifyjl9v1srv/Black-2_6AH1DV80Tk?updatedAt=1635747896570"
+                    alt="profile-img" class="dropbtn user-img link" data-dropdown-button>
+                <div class="dropdown-menu dropdown-links">
+                    <a href="{% url 'logout' %}" class="link"> Logout </a>
+                </div>
             </div>
 
-            {% if user.is_authenticated %}
+        </div>
 
-                <div class="nav__shop">
+        {% else %}
 
-                    <div class="dropdown" data-dropdown>
-                        <img src="https://ik.imagekit.io/ifyjl9v1srv/Black-2_6AH1DV80Tk?updatedAt=1635747896570" alt="profile-img" class="dropbtn user-img link" data-dropdown-button>
-                        <div class="dropdown-menu dropdown-links">
-                          <a href="#" class="link"> Logout </a>
-                        </div>
-                    </div>
+        <div class="nav__shop">
 
+            <div class="dropdown" data-dropdown>
+                <i class='bx bx-user-pin dropbtn link' data-dropdown-button></i>
+                <div class="dropdown-menu dropdown-links">
+                    <a href="{% url 'login' %}" class="link"> Login </a>
+                    <a href="{% url 'register' %}" class="link"> Register </a>
                 </div>
+            </div>
 
-            {% else %}
+        </div>
 
-                <div class="nav__shop">
+        {% endif %}
 
-                    <div class="dropdown" data-dropdown>
-                        <i class='bx bx-user-pin dropbtn link' data-dropdown-button></i>
-                        <div class="dropdown-menu dropdown-links">
-                          <a href="#" class="link"> Login </a>
-                          <a href="#" class="link"> Register </a>
-                        </div>
-                    </div>
+    </nav>
 
-                </div>
-
-            {% endif %}
-
-        </nav>
-
-    </header>
+</header>
 
 {% endblock %}
 
 {% block body %}
 
-    <div class="mainbody_index">
+<div class="mainbody_index">
 
-        <!-- <h2>Active Listings</h2> -->
+    <!-- <h2>Active Listings</h2> -->
 
-        {% for listing in Listings %}
+    {% for listing in Listings %}
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home" id="home">
-        
-                <div class="home__container bd-grid">
-        
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+
+            <div class="home__container bd-grid">
+
                 <div class="home__sneaker">
-        
+
                     <div class="home__shape">
-        
+
                         <img src="{{ listing.image_url }}" alt="" class="home__img">
-        
+
                     </div>
-        
-                </div>  
-        
+
+                </div>
+
                 <div class="home__data">
-        
+
                     <span class="home__new">
-        
+
                         Newly arrived
-        
+
                     </span>
-        
+
                     <h1 class="home__title">
-        
+
                         {{ listing.title }}
-        
+
                     </h1>
-        
+
                     <p class="home__description">
-        
+
                         Explore the new collection of sneakers starting from 75$
-        
+
                     </p>
-        
+
                     <a href="#" class="button">
-        
+
                         Bid now
-        
+
                     </a>
-        
-                </div>
-        
-                </div>
-        
-            </section>
-        
-            <!--===== FEATURED =====-->
-            <section class="featured section" id="featured">
-
-                <h2 class="section-title">
-                    FEATURED
-                </h2>
-
-                <div class="featured__container bd-grid">
-
-                    <article class="sneaker">
-
-                        <div class="sneaker__sale"> 
-                            
-                            Sale 
-
-                        </div>
-
-                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured1.png?raw=true" alt="" class="sneaker__img">
-
-                        <span class="sneaker__name">
-
-                            Nike Free RN
-
-                        </span>
-
-                        <span class="sneaker__preci">
-
-                            $149.99 <!-- Current bid price should be here -->
-
-                        </span>
-
-                        <a href="" class="button-light">
-
-                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
-
-                        </a>
-
-                    </article>
-
-
-                    <article class="sneaker">
-
-                        <div class="sneaker__sale"> 
-                            
-                            Sale 
-
-                        </div>
-
-                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured2.png?raw=true" alt="" class="sneaker__img">
-
-                        <span class="sneaker__name">
-
-                            Nike Free N
-
-                        </span>
-
-                        <span class="sneaker__preci">
-
-                            $149.99 <!-- Current bid price should be here -->
-
-                        </span>
-
-                        <a href="" class="button-light">
-
-                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
-
-                        </a>
-
-                    </article>
-
-
-                    <article class="sneaker">
-
-                        <div class="sneaker__sale"> 
-                            
-                            Sale 
-
-                        </div>
-
-                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured3.png?raw=true" alt="" class="sneaker__img">
-
-                        <span class="sneaker__name">
-
-                            Nike Jordan
-
-                        </span>
-
-                        <span class="sneaker__preci">
-
-                            $149.99 <!-- Current bid price should be here -->
-
-                        </span>
-
-                        <a href="" class="button-light">
-
-                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
-
-                        </a>
-
-                    </article>
 
                 </div>
 
-            </section>
-        
-            <!--===== COLLECTION =====-->
-            <section class="collection section">
+            </div>
 
-                <div class="collection__container bd-grid">
+        </section>
 
-                    <div class="collection__card">
+        <!--===== FEATURED =====-->
+        <section class="featured section" id="featured">
 
-                        <div class="collection__data">
+            <h2 class="section-title">
+                FEATURED
+            </h2>
 
-                            <h3 class="collection__name">
+            <div class="featured__container bd-grid">
 
-                                Nike
+                <article class="sneaker">
 
-                            </h3>
+                    <div class="sneaker__sale">
 
-                            <p class="collection__description">
-
-                                New collection 2021 
-                                <!-- pass DJango date here -->
-
-                            </p>
-
-                            <a href="#" class="button-light">
-
-                                Buy now
-                                <i class='bx bxs-right-arrow-alt button-icon'></i>
-
-                            </a>
-
-                            <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/collection1.png?raw=true" alt="" class="collection__img">
-
-                        </div>
+                        Sale
 
                     </div>
 
-                    <div class="collection__card">
+                    <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured1.png?raw=true"
+                        alt="" class="sneaker__img">
 
-                        <div class="collection__data">
+                    <span class="sneaker__name">
 
-                            <h3 class="collection__name">
+                        Nike Free RN
 
-                                Adidas
+                    </span>
 
-                            </h3>
+                    <span class="sneaker__preci">
 
-                            <p class="collection__description">
+                        $149.99
+                        <!-- Current bid price should be here -->
 
-                                New collection 2021 
-                                <!-- pass DJango date here -->
+                    </span>
 
-                            </p>
+                    <a href="" class="button-light">
 
-                            <a href="#" class="button-light">
+                        Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i>
+                        <!-- View Current lisitng would be here -->
 
-                                Buy now
-                                <i class='bx bxs-right-arrow-alt button-icon'></i>
+                    </a>
 
-                            </a>
+                </article>
 
-                            <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/collection2.png?raw=true" alt="" class="collection__img">
 
-                        </div>
+                <article class="sneaker">
+
+                    <div class="sneaker__sale">
+
+                        Sale
 
                     </div>
 
+                    <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured2.png?raw=true"
+                        alt="" class="sneaker__img">
 
-                </div>
+                    <span class="sneaker__name">
 
-            </section>
-        
-            <!--===== WOMEN SNEAKERS =====-->
-            <section class="women section" id="women">
+                        Nike Free N
 
-                <h2 class="section-title">
-                    
-                    WOMEN SNEAKERS
+                    </span>
 
-                </h2>
+                    <span class="sneaker__preci">
 
-                <div class="women__container bd-grid">
+                        $149.99
+                        <!-- Current bid price should be here -->
 
-                    <article class="sneaker">
+                    </span>
 
-                        <div class="sneaker__sale"> 
-                            
-                            Sale 
+                    <a href="" class="button-light">
 
-                        </div>
+                        Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i>
+                        <!-- View Current lisitng would be here -->
 
-                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women1.png?raw=true" alt="" class="sneaker__img">
+                    </a>
 
-                        <span class="sneaker__name">
+                </article>
 
-                            Nike Free TR
-                        </span>
 
-                        <span class="sneaker__preci">
+                <article class="sneaker">
 
-                            $129.99 <!-- Current bid price should be here -->
+                    <div class="sneaker__sale">
 
-                        </span>
+                        Sale
 
-                        <a href="" class="button-light">
+                    </div>
 
-                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+                    <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/featured3.png?raw=true"
+                        alt="" class="sneaker__img">
 
-                        </a>
+                    <span class="sneaker__name">
 
-                    </article>
+                        Nike Jordan
 
-                    <article class="sneaker">
+                    </span>
 
-                        <div class="sneaker__sale"> 
-                            
-                            Sale 
+                    <span class="sneaker__preci">
 
-                        </div>
+                        $149.99
+                        <!-- Current bid price should be here -->
 
-                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women2.png?raw=true" alt="" class="sneaker__img">
+                    </span>
 
-                        <span class="sneaker__name">
+                    <a href="" class="button-light">
 
-                            Nike Jordan
+                        Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i>
+                        <!-- View Current lisitng would be here -->
 
-                        </span>
+                    </a>
 
-                        <span class="sneaker__preci">
+                </article>
 
-                            $149.99 <!-- Current bid price should be here -->
+            </div>
 
-                        </span>
+        </section>
 
-                        <a href="" class="button-light">
+        <!--===== COLLECTION =====-->
+        <section class="collection section">
 
-                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
+            <div class="collection__container bd-grid">
 
-                        </a>
+                <div class="collection__card">
 
-                    </article>
+                    <div class="collection__data">
 
-                    <article class="sneaker">
+                        <h3 class="collection__name">
 
-                        <div class="sneaker__sale"> 
-                            
-                            Sale 
+                            Nike
 
-                        </div>
-
-                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women3.png?raw=true" alt="" class="sneaker__img">
-
-                        <span class="sneaker__name">
-
-                            Nike Jordan
-
-                        </span>
-
-                        <span class="sneaker__preci">
-
-                            $149.99 <!-- Current bid price should be here -->
-
-                        </span>
-
-                        <a href="" class="button-light">
-
-                            Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i><!-- View Current lisitng would be here -->
-
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </section>
-        
-            <!--===== OFFER =====-->
-            <section class="offer section">
-                <div class="offer__container bd-grid">
-                    <div class="offer__data">
-                        <h3 class="offer__title">
-                            Up to 50% OFF
                         </h3>
-                        <p class="offer__description">
-                            Adidas Superstar sneakers
+
+                        <p class="collection__description">
+
+                            New collection 2021
+                            <!-- pass DJango date here -->
+
                         </p>
-                        <a href="#" class="button"> Bid Now </a>
+
+                        <a href="#" class="button-light">
+
+                            Buy now
+                            <i class='bx bxs-right-arrow-alt button-icon'></i>
+
+                        </a>
+
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/collection1.png?raw=true"
+                            alt="" class="collection__img">
+
                     </div>
-
-                    <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/offert.png?raw=true" alt="" class="offer__img">
-                </div>
-            </section>
-        
-            <!--===== NEW COLLECTION =====-->
-            <section class="new section" id="new">
-                <h2 class="section-title"> NEW COLLECTION </h2>
-
-                <div class="new__container bd-grid">
-                    <div class="new__mens">
-                            <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/new1.png?raw=true" alt="" class="new__mens-img">
-                        <h3 class="new__title"> Mens Shoes </h3>
-                        <span class="new__preci"> From $99.99 </span>
-                        <a href="#" class="button-light"> View Collection <i class='bx bxs-right-arrow-alt button-icon'></i> </a>
-                    </div>
-                
-
-                    <div class="new__sneaker">
-                        <div class="new__sneaker-card">
-                            <img src="https://user-images.githubusercontent.com/17897083/139540288-6d96f99e-95e7-4cac-85c2-3333a7a57bfb.png" alt="" class="new__sneaker-img">
-                            <div class="new__sneaker-overlay">
-                                <a href="" class="button"> Bid Now</a>
-                            </div>
-                        </div>
-
-                        <div class="new__sneaker-card">
-                            <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/new3.png?raw=true" alt="" class="new__sneaker-img">
-                            <div class="new__sneaker-overlay">
-                                <a href="" class="button"> Bid Now</a>
-                            </div>
-                        </div>
-
-                        <div class="new__sneaker-card">
-                            <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/new4.png?raw=true" alt="" class="new__sneaker-img">
-                            <div class="new__sneaker-overlay">
-                                <a href="" class="button"> Bid Now</a>
-                            </div>
-                        </div>
-
-                        <div class="new__sneaker-card">
-                            <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/new5.png?raw=true" alt="" class="new__sneaker-img">
-                            <div class="new__sneaker-overlay">
-                                <a href="" class="button"> Bid Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        
-            <!--===== NEWSLETTER =====-->
-            <section class="newsletter section">
-                <div class="newsletter__container bd-grid">
-                    <div>
-                        <h3 class="newsletter__title"> Susbcribe And Get <br> 10% OFF </h3>
-                        <p class="newsletter__description"> Get 10% discount for a all products </p>
-                    </div>
-
-                    <form action="" class="newsletter__subscribe">
-                        <input type="text" placeholder="@email.com" class="newsletter__input">
-                        <a href="#" class="button"> Subscribe </a>
-                    </form>
 
                 </div>
-            </section>
-    
-        </main>
-        
-        {% endfor %}
+
+                <div class="collection__card">
+
+                    <div class="collection__data">
+
+                        <h3 class="collection__name">
+
+                            Adidas
+
+                        </h3>
+
+                        <p class="collection__description">
+
+                            New collection 2021
+                            <!-- pass DJango date here -->
+
+                        </p>
+
+                        <a href="#" class="button-light">
+
+                            Buy now
+                            <i class='bx bxs-right-arrow-alt button-icon'></i>
+
+                        </a>
+
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/collection2.png?raw=true"
+                            alt="" class="collection__img">
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+        <!--===== WOMEN SNEAKERS =====-->
+        <section class="women section" id="women">
+
+            <h2 class="section-title">
+
+                WOMEN SNEAKERS
+
+            </h2>
+
+            <div class="women__container bd-grid">
+
+                <article class="sneaker">
+
+                    <div class="sneaker__sale">
+
+                        Sale
+
+                    </div>
+
+                    <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women1.png?raw=true"
+                        alt="" class="sneaker__img">
+
+                    <span class="sneaker__name">
+
+                        Nike Free TR
+                    </span>
+
+                    <span class="sneaker__preci">
+
+                        $129.99
+                        <!-- Current bid price should be here -->
+
+                    </span>
+
+                    <a href="" class="button-light">
+
+                        Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i>
+                        <!-- View Current lisitng would be here -->
+
+                    </a>
+
+                </article>
+
+                <article class="sneaker">
+
+                    <div class="sneaker__sale">
+
+                        Sale
+
+                    </div>
+
+                    <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women2.png?raw=true"
+                        alt="" class="sneaker__img">
+
+                    <span class="sneaker__name">
+
+                        Nike Jordan
+
+                    </span>
+
+                    <span class="sneaker__preci">
+
+                        $149.99
+                        <!-- Current bid price should be here -->
+
+                    </span>
+
+                    <a href="" class="button-light">
+
+                        Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i>
+                        <!-- View Current lisitng would be here -->
+
+                    </a>
+
+                </article>
+
+                <article class="sneaker">
+
+                    <div class="sneaker__sale">
+
+                        Sale
+
+                    </div>
+
+                    <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/women3.png?raw=true"
+                        alt="" class="sneaker__img">
+
+                    <span class="sneaker__name">
+
+                        Nike Jordan
+
+                    </span>
+
+                    <span class="sneaker__preci">
+
+                        $149.99
+                        <!-- Current bid price should be here -->
+
+                    </span>
+
+                    <a href="" class="button-light">
+
+                        Add to Cart <i class='bx bxs-right-arrow-alt button-icon'></i>
+                        <!-- View Current lisitng would be here -->
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!--===== OFFER =====-->
+        <section class="offer section">
+            <div class="offer__container bd-grid">
+                <div class="offer__data">
+                    <h3 class="offer__title">
+                        Up to 50% OFF
+                    </h3>
+                    <p class="offer__description">
+                        Adidas Superstar sneakers
+                    </p>
+                    <a href="#" class="button"> Bid Now </a>
+                </div>
+
+                <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/offert.png?raw=true"
+                    alt="" class="offer__img">
+            </div>
+        </section>
+
+        <!--===== NEW COLLECTION =====-->
+        <section class="new section" id="new">
+            <h2 class="section-title"> NEW COLLECTION </h2>
+
+            <div class="new__container bd-grid">
+                <div class="new__mens">
+                    <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/new1.png?raw=true"
+                        alt="" class="new__mens-img">
+                    <h3 class="new__title"> Mens Shoes </h3>
+                    <span class="new__preci"> From $99.99 </span>
+                    <a href="#" class="button-light"> View Collection <i class='bx bxs-right-arrow-alt button-icon'></i>
+                    </a>
+                </div>
+
+
+                <div class="new__sneaker">
+                    <div class="new__sneaker-card">
+                        <img src="https://user-images.githubusercontent.com/17897083/139540288-6d96f99e-95e7-4cac-85c2-3333a7a57bfb.png"
+                            alt="" class="new__sneaker-img">
+                        <div class="new__sneaker-overlay">
+                            <a href="" class="button"> Bid Now</a>
+                        </div>
+                    </div>
+
+                    <div class="new__sneaker-card">
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/new3.png?raw=true"
+                            alt="" class="new__sneaker-img">
+                        <div class="new__sneaker-overlay">
+                            <a href="" class="button"> Bid Now</a>
+                        </div>
+                    </div>
+
+                    <div class="new__sneaker-card">
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/new4.png?raw=true"
+                            alt="" class="new__sneaker-img">
+                        <div class="new__sneaker-overlay">
+                            <a href="" class="button"> Bid Now</a>
+                        </div>
+                    </div>
+
+                    <div class="new__sneaker-card">
+                        <img src="https://github.com/bedimcode/responsive-ecommerce-website-sneakers/blob/master/assets/img/new5.png?raw=true"
+                            alt="" class="new__sneaker-img">
+                        <div class="new__sneaker-overlay">
+                            <a href="" class="button"> Bid Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== NEWSLETTER =====-->
+        <section class="newsletter section">
+            <div class="newsletter__container bd-grid">
+                <div>
+                    <h3 class="newsletter__title"> Susbcribe And Get <br> 10% OFF </h3>
+                    <p class="newsletter__description"> Get 10% discount for a all products </p>
+                </div>
+
+                <form action="" class="newsletter__subscribe">
+                    <input type="text" placeholder="@email.com" class="newsletter__input">
+                    <a href="#" class="button"> Subscribe </a>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    {% endfor %}
+
+</div>
+
+<!--===== FOOTER =====-->
+<footer class="footer section">
+    <div class="footer__container bd-grid">
+        <div class="footer__box">
+            <h3 class="footer__title"> Akira </h3>
+            <p class="footer__description"> New collection of shoes
+        </div>
+
+        <div class="footer__box">
+            <h3 class="footer__title"> EXPLORE </h3>
+            <ul>
+                <li><a href="#home" class="footer__link"> Home </a></li>
+                <li><a href="#featured" class="footer__link"> Featured </a></li>
+                <li><a href="#women" class="footer__1ink"> Women </a></li>
+                <li><a href="#new" class="footer__link"> New </a></1i>
+            </ul>
+        </div>
+
+        <div class="footer__box">
+            <h3 class="footer__title"> SUPPORT </h3>
+            <ul>
+                <li><a href="#" class="footer__link"> Product </a>
+                </li>
+                <li><a href="#" class="footer__link"> Customer Care </a></li>
+                <li><a href="#" class="footer__1ink"> Authorized Service </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer__box">
+            <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+            <a href="#" class="footer_social"><i class='bx bxl-google'></i></a>
+        </div>
 
     </div>
 
-    <!--===== FOOTER =====-->
-    <footer class="footer section">
-        <div class="footer__container bd-grid">
-            <div class="footer__box">
-                <h3 class="footer__title"> Roby </h3>
-                <p class="footer__description"> New collection of shoes
-            </div>
-            
-            <div class="footer__box">
-                <h3 class="footer__title"> EXPLORE </h3>
-                <ul>
-                    <li><a href="#home" class="footer__link"> Home </a></li>
-                    <li><a href="#featured" class="footer__link"> Featured </a></li>
-                    <li><a href="#women" class="footer__1ink"> Women </a></li>
-                    <li><a href="#new" class="footer__link"> New </a></1i>
-                </ul>
-            </div>
+    <p class="footer__copy"> &#169; {{ current_year }}. Made with &#10084; in Tema </p>
+    <!-- Django date should be here -->
 
-            <div class="footer__box">
-                <h3 class="footer__title"> SUPPORT </h3>
-                <ul>
-                    <li><a href="#" class="footer__link"> Product </a>
-                    </li>
-                    <li><a href="#" class="footer__link"> Customer Care </a></li>
-                    <li><a href="#" class="footer__1ink"> Authorized Service </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="footer__box">
-                <a href="#" class="footer__social"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
-                <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
-                <a href="#" class="footer_social"><i class='bx bxl-google' ></i></a>
-            </div>
-
-        </div>
-
-        <p class="footer__copy"> &#169; Made with &#10084; in Tema </p>
-        <!-- Django date should be here -->
-
-    </footer>
+</footer>
 
 
 {% endblock %}
