@@ -42,15 +42,15 @@
 
                 </li>
 
-                <!-- <li class="nav__item">
-                        
-                        <a href="#new" class="nav__link"> Active Listings </a>
-
-                    </li> -->
-
                 <li class="nav__item">
 
                     <a href="{% url 'create_listing' %}" class="nav__link"> Create listing </a>
+
+                </li>
+
+                <li class="nav__item">
+
+                    <a href="{% url 'all_listings' %}" class="nav__link"> All Listings </a>
 
                 </li>
 
@@ -98,10 +98,6 @@
 
 <div class="mainbody_index">
 
-    <!-- <h2>Active Listings</h2> -->
-
-    {% for listing in Listings %}
-
     <main class="l-main">
         <!--===== HOME =====-->
         <section class="home" id="home">
@@ -112,7 +108,7 @@
 
                     <div class="home__shape">
 
-                        <img src="{{ listing.image_url }}" alt="" class="home__img">
+                        <img src="{{ main_banner.image_url }}" alt="" class="home__img">
 
                     </div>
 
@@ -128,7 +124,7 @@
 
                     <h1 class="home__title">
 
-                        {{ listing.title }}
+                        {{ main_banner.title }}
 
                     </h1>
 
@@ -536,7 +532,6 @@
 
     </main>
 
-    {% endfor %}
 
 </div>
 
