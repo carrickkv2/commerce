@@ -22,7 +22,9 @@ def index(request):
         request,
         "auctions/index.html",
         {
-            "Listings": AuctionListings.objects.all(),
+            "main_banner": AuctionListings.objects.get(
+                title="YEEZY BOOST 350"
+            ),  # Should get the lisiting for only the main banner
             "current_year": datetime.datetime.now().year,
         },
     )
@@ -102,6 +104,16 @@ def create(request):
         author.seller = current_user
         author.save()
 
-        return render(request, "auctions/index.html")
+        return render(
+            request, "auctions/index.html"
+        )  # Should be the specific listing here
 
     return render(request, "auctions/create_listings.html", {"form": NewListingForm()})
+
+
+def all_listings(request):
+    """
+    Shows all listings currently on the site.
+    """
+
+    return render(request, "auctions/all_listings.html")

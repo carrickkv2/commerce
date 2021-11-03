@@ -203,3 +203,21 @@ If user logged in, show profile picture
 
 
 change the js dropdown to css
+
+
+
+change all the listings to active links
+
+
+
+Get new images
+
+
+
+Active listings - change images, show diferent images - change sale to current bid bride
+
+10 images - use all the 10 images and add 4 more
+
+
+
+bid now should send us to the listing page
