@@ -1,0 +1,56 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+
+{{ listing.title }}
+
+{% endblock %}
+
+
+{% block body %}
+
+<main class="l-main">
+
+    <section class="featured section" id="shop">
+
+        <h2 class="section-title">
+            {{ listing.title }}
+        </h2>
+
+        <div class="featured__container bd-grid">
+
+            <article class="sneaker">
+
+                <img src="{{ listing.image_url }}" alt="" class="sneaker__img">
+
+                <span class="sneaker__name">
+
+                    Nike Free RN
+
+                </span>
+
+                <span class="sneaker__preci">
+
+                    Current Bid: 149$
+                    <!-- Current bid price should be here -->
+
+                </span>
+
+                <a href="" class="button-light">
+
+                    View Listing <i class='bx bxs-right-arrow-alt button-icon'></i>
+                    <!-- View Current lisitng would be here -->
+
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}
