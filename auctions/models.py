@@ -4,21 +4,21 @@ from datetime import date
 from django.utils import timezone
 
 CATEGORIES = (
-    ('Clothes', 'Clothes'),
-    ('Shoe', 'Shoe'),
-    ('Furniture', 'Furniture'),
-    ('Electronics', 'Electronics'),
-    ('Miscellaneous', 'Miscellaneous'),
-    ('Kitchen', 'Kitchen'),
-    ('None', 'None'),
+    ("Clothes", "Clothes"),
+    ("Shoes", "Shoes"),
+    ("Furniture", "Furniture"),
+    ("Electronics", "Electronics"),
+    ("Miscellaneous", "Miscellaneous"),
+    ("None", "None"),
 )
 
 
 class User(AbstractUser):
     """
     Allows one to get more data about a user than Django allows.
-    In this instance it's not used. 
+    In this instance it's not used.
     """
+
     pass
 
     def __str__(self):
@@ -29,6 +29,7 @@ class AuctionListings(models.Model):
     """
     Model for all the listings listed on the site.
     """
+
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=40)
     description = models.TextField()
@@ -49,6 +50,7 @@ class AuctionListings(models.Model):
         """
         Specifies the plural name of the model for the Django Admin Panel.
         """
+
         verbose_name_plural = "Auction Listings"
 
 
@@ -72,6 +74,7 @@ class Comments(models.Model):
     """
     Model to allow one comment on listings.
     """
+
     comments = models.CharField(max_length=500)
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     commented_listing = models.ForeignKey(AuctionListings, on_delete=models.CASCADE)
@@ -87,6 +90,7 @@ class WatchList(models.Model):
     """
     Model to add listings to watchlist.
     """
+
     on_watch_list = models.BooleanField()
     lister = models.ForeignKey(User, on_delete=models.CASCADE)
     watch_listed_listing = models.ForeignKey(AuctionListings, on_delete=models.CASCADE)
