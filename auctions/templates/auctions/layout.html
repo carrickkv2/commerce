@@ -79,6 +79,7 @@
                     <img src="https://ik.imagekit.io/ifyjl9v1srv/Black-2_6AH1DV80Tk?updatedAt=1635747896570"
                         alt="profile-img" class="dropbtn user-img link" data-dropdown-button>
                     <div class="dropdown-menu dropdown-links">
+                        <h2 class="link"> {{ user.get_username }} </h2>
                         <a href="{% url 'logout' %}" class="link"> Logout </a>
                     </div>
                 </div>
@@ -115,10 +116,10 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+    <!-- 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
