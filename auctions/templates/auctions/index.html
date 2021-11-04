@@ -66,6 +66,7 @@
                 <img src="https://ik.imagekit.io/ifyjl9v1srv/Black-2_6AH1DV80Tk?updatedAt=1635747896570"
                     alt="profile-img" class="dropbtn user-img link" data-dropdown-button>
                 <div class="dropdown-menu dropdown-links">
+                    <h2 class="link"> {{ user.get_username }} </h2>
                     <a href="{% url 'logout' %}" class="link"> Logout </a>
                 </div>
             </div>
@@ -134,7 +135,7 @@
 
                     </p>
 
-                    <a href="#" class="button">
+                    <a href="{% url 'listing_page' main_banner.id %}" class="button">
 
                         Bid now
 
