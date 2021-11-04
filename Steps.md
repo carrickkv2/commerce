@@ -208,7 +208,7 @@ change the js dropdown to css
 
 change all the listings to active links
 
-
+Have 2 4 catge - nike, adidas, men, women
 
 Get new images
 
@@ -218,6 +218,29 @@ Active listings - change images, show diferent images - change sale to current b
 
 10 images - use all the 10 images and add 4 more
 
-
+404 page template
 
 bid now should send us to the listing page
+
+test@mail.com
+
+dave - test4444 main banner nike pink
+
+Rick - test4444 red nike adidas 1
+
+Roby - test4444 black adidas 2
+
+Ava - test4444 grey nike adidas 3
+
+Remi - test4444 - Nike pink adidas 4
+
+Callie - test4444 - nike orange adidas 4
+
+
+
+filter on date, on id(think that might be the best), 
+filter based upon time in the future 
+
+can also limit based on query 
+
+[Making queries | Django documentation | Django (djangoproject.com)](https://docs.djangoproject.com/en/3.2/topics/db/queries/)
